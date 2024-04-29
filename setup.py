@@ -17,8 +17,8 @@ DESCRIPTION = 'wechat robot framework.'
 URL = 'https://github.com/miloira/ntchat2'
 EMAIL = '690126048@qq.com'
 AUTHOR = 'Msky'
-REQUIRES_PYTHON = '>=3.8.0'
-VERSION = '1.0.0'
+REQUIRES_PYTHON = '>=3.6.0'
+VERSION = '1.0.1'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
