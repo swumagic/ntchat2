@@ -99,9 +99,11 @@ class WeChat:
         msg_type = message["type"]
         extend = message.get("extend", None)
 
-        if msg_type == notify_type.MT_RECV_LOGIN_HWND_MSG and message["data"]["login_hwnd"] != 0:
+        if self.faked_wechat_version is not None and msg_type == notify_type.MT_RECV_LOGIN_HWND_MSG and message["data"]["login_hwnd"] != 0:
             if fake_wechat_version(self.pid, self.version, self.faked_wechat_version) == 0:
                 log.info(f"wechat version faked: {self.version} -> {self.faked_wechat_version}")
+            else:
+                log.info(f"wechat version fake failed.")
         elif msg_type == notify_type.MT_USER_LOGIN_MSG:
             self.login_status = True
             self.__wait_login_event.set()
@@ -123,7 +125,7 @@ class WeChat:
         log.info("wait login...")
         self.__wait_login_event.wait(timeout)
 
-    def open(self, *, faked_wechat_version, smart=False, show_login_qrcode=False):
+    def open(self, smart=False, show_login_qrcode=False, faked_wechat_version=None):
         if show_login_qrcode:
             wcprobe.show_login_qrcode()
 

@@ -38,7 +38,10 @@ import ntchat2
 wechat = ntchat2.WeChat()
 
 # 打开pc微信, smart: 是否管理已经登录的微信
-wechat.open(faked_wechat_version="3.9.10.19", smart=False)
+# wechat.open(smart=False)
+
+# 微信登录出现登录限制时，使用faked_wechat_version伪造版本号
+wechat.open(smart=False, faked_wechat_version="3.9.10.19")
 
 # 等待登录
 wechat.wait_login()
@@ -63,7 +66,10 @@ import ntchat2
 wechat = ntchat2.WeChat()
 
 # 打开pc微信, smart: 是否管理已经登录的微信
-wechat.open(faked_wechat_version="3.9.10.19", smart=False)
+# wechat.open(smart=False)
+
+# 微信登录出现登录限制时，使用faked_wechat_version伪造版本号
+wechat.open(smart=False, faked_wechat_version="3.9.10.19")
 
 # 等待登录
 wechat.wait_login()
@@ -97,8 +103,10 @@ import ntchat2
 wechat = ntchat2.WeChat()
 
 # 打开pc微信, smart: 是否管理已经登录的微信
-wechat.open(faked_wechat_version="3.9.10.19", smart=False)
+# wechat.open(smart=False)
 
+# 微信登录出现登录限制时，使用faked_wechat_version伪造版本号
+wechat.open(smart=False, faked_wechat_version="3.9.10.19")
 
 # 注册消息回调
 @wechat.msg_register(ntchat2.MT_RECV_TEXT_MSG)
